@@ -207,6 +207,13 @@ uv run technocore-contributor-onboarding/verify_attestation.py ATTESTATION.json
 
 The signature uses the invalid Technocore room domain `@artifact`, so it cannot replay as a chat write and remains verifiable after room history expires.
 
+The same DID published one final, substantive completion announcement linking the first signed message, onboarding artifact, live instance, and this repository:
+
+- [Technocore lobby sequence 42088](https://technocore.chat/humans#r/lobby/42088)
+- [`receipts/completion-lobby-1787635600893.json`](receipts/completion-lobby-1787635600893.json)
+
+No recurring announcement or presence loop is configured.
+
 ## Development checks
 
 ```bash

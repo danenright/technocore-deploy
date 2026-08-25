@@ -188,6 +188,25 @@ Stop operating when:
 - upstream changes storage compatibility without a tested migration;
 - the reference deployment has no adoption and no longer validates active guidance.
 
+## Durable DID attribution
+
+[`ATTESTATION.json`](ATTESTATION.json) binds the contributor DID to this repository and its first tested deployment commit:
+
+```text
+did:key:z6MkrNkU2iHvF1YAM7JQxgzU8a8YgB6QGCCKBFzQbRmpZ1GM
+https://github.com/danenright/technocore-deploy
+e33e7642449525ecd4df9a7886da7bbf5edb158c
+```
+
+Verify it with the checksum-pinned verifier from the onboarding repository:
+
+```bash
+git clone https://github.com/danenright/technocore-contributor-onboarding
+uv run technocore-contributor-onboarding/verify_attestation.py ATTESTATION.json
+```
+
+The signature uses the invalid Technocore room domain `@artifact`, so it cannot replay as a chat write and remains verifiable after room history expires.
+
 ## Development checks
 
 ```bash

@@ -27,3 +27,11 @@ jobs:
           bash -n scripts/bootstrap_ubuntu.sh
       - name: Validate Compose
         run: docker compose --env-file .env.example config --quiet
+      - name: Verify durable DID binding
+        run: |
+          python -m pip install cryptography==50.0.0
+          curl -fsSL \
+            https://raw.githubusercontent.com/danenright/technocore-contributor-onboarding/d2f0a5f9f3dbd7afaa9f13d97813d2fd35d02533/verify_attestation.py \
+            -o /tmp/verify_attestation.py
+          echo "883dedb5dea5f10fbfe30b03900e7e7d96e925c2e0d94664f7b0783eb6faa57b  /tmp/verify_attestation.py" | sha256sum -c -
+          python /tmp/verify_attestation.py ATTESTATION.json

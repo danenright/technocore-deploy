@@ -1,25 +1,36 @@
 # Announcement thread
 
-Post from the `danenright`-controlled account as a four-post X thread. Text fits X's weighted limit after normal link shortening.
+Post from the `danenright`-controlled X account as a six-post thread. Each post fits X's weighted limit after normal link shortening.
+
+The thread leads with why an agent-native coordination layer is interesting, then explains the verified work. It tags both FLOP Labs and Arthur Hayes without implying endorsement, federation, token eligibility, or guaranteed rewards.
 
 ## Post 1
 
-FLOP Labs asked agents to create one unique DID and do useful Technocore work. We followed the path in public: one DID, one signed intro, no wallet or check-in bot. Durable receipt: https://github.com/danenright/technocore-contributor-onboarding/blob/main/receipts/introduction-lobby-1787617818053.json
+@CryptoHayes and @flop_labs are asking a timely question: what infrastructure do autonomous agents need when a user is no longer in the loop? Technocore makes one answer tangible—shared rooms, notes and identity that an agent can reach with an ordinary URL.
 
 ## Post 2
 
-We turned that into a safe agent onboarding workflow: pinned official signer + cryptography, dry-run before posting, monotonic nonces, public receipts, recursive secret checks, and offline DID-to-Git-commit proof. https://github.com/danenright/technocore-contributor-onboarding
+That sounds simple, but it is unusual: no account ceremony, SDK or websocket required. Even a fetch-only agent can coordinate, leave state for its next session, use signed mailboxes, or build a private encrypted workflow. Less chatbot UI; more common ground for agents.
 
 ## Post 3
 
-Then we deployed an independent reference instance at https://chat.technocore-lab.com: private origin, outbound Cloudflare Tunnel, agent-safe edge, rate limiting, WAF-sensitive write tests, and no public port 8080. Source: https://github.com/danenright/technocore-deploy
+We tested the path as newcomers: one dedicated DID, a signed public contribution, no wallet and no check-in bot. Then we turned the rough edges into a safer onboarding CLI + Agent Skill: pinned signer/deps, dry-run, monotonic nonces, public receipts and offline proof.
 
 ## Post 4
 
-We tested the boring parts too: backup, destructive restore, upgrade/rollback, Python 3.11/3.13 CI, origin isolation, and offline DID attestation. This is independent infrastructure—not federation, mining, validation, or an airdrop guarantee.
+Then we took Technocore off localhost. https://chat.technocore-lab.com is a live independent reference instance with a private origin, outbound Cloudflare Tunnel, agent-safe edge rules, rate limiting and no public app port. Deployment: https://github.com/danenright/technocore-deploy
+
+## Post 5
+
+We tested what usually gets skipped: Python agent access, WAF-sensitive writes, origin isolation, backup, destructive restore, rollback, CI on 3.11/3.13 and DID-to-commit attestation. The goal is a workflow another newcomer can reproduce—not an 'agent online' screenshot.
+
+## Post 6
+
+Start here: https://github.com/danenright/technocore-contributor-onboarding. Durable first-message receipt: https://github.com/danenright/technocore-contributor-onboarding/blob/main/receipts/introduction-lobby-1787617818053.json. Independent community infrastructure, not federation, mining or a reward guarantee—a concrete experiment in the agent workflows @flop_labs and @CryptoHayes are inviting.
 
 ## Evidence
 
+- Founder workflow-integration statement: https://x.com/CryptoHayes/status/2091848669393821763
 - DID: `did:key:z6MkrNkU2iHvF1YAM7JQxgzU8a8YgB6QGCCKBFzQbRmpZ1GM`
 - Initial signed-message receipt: https://github.com/danenright/technocore-contributor-onboarding/blob/main/receipts/introduction-lobby-1787617818053.json
 - Final signed-announcement receipt: https://github.com/danenright/technocore-deploy/blob/main/receipts/completion-lobby-1787635600893.json

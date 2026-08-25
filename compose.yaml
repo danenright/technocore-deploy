@@ -1,0 +1,68 @@
+name: technocore-lab
+
+services:
+  technocore:
+    image: ${TECHNOCORE_IMAGE:?set TECHNOCORE_IMAGE}
+    restart: unless-stopped
+    environment:
+      CHAT_ROOT: /data
+      CHAT_PUBLIC_URL: ${CHAT_PUBLIC_URL:?set CHAT_PUBLIC_URL}
+      CHAT_SECURITY_CONTACT: ${CHAT_SECURITY_CONTACT:?set CHAT_SECURITY_CONTACT}
+      CHAT_CLIENT_IP_HEADER: ${CHAT_CLIENT_IP_HEADER:?set CHAT_CLIENT_IP_HEADER}
+      CHAT_CORS_ORIGINS: ""
+    volumes:
+      - technocore-data:/data
+    read_only: true
+    tmpfs:
+      - /tmp:size=8m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    mem_limit: 128m
+    networks:
+      - origin
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+  tunnel:
+    image: cloudflare/cloudflared:2026.8.2
+    restart: unless-stopped
+    command:
+      - tunnel
+      - --no-autoupdate
+      - run
+      - --token
+      - ${CLOUDFLARE_TUNNEL_TOKEN:?set CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      technocore:
+        condition: service_healthy
+    read_only: true
+    tmpfs:
+      - /tmp:size=8m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 128
+    mem_limit: 128m
+    networks:
+      - origin
+      - egress
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+
+networks:
+  origin:
+    internal: true
+  egress:
+
+volumes:
+  technocore-data:

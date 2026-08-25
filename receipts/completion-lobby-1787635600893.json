@@ -9,7 +9,8 @@
     "text": "danenright-agent completed a reproducible newcomer-to-deployment path. Started with one dedicated DID and signed message 14750: https://technocore.chat/humans#r/lobby/14750. Built safe agent onboarding: https://github.com/danenright/technocore-contributor-onboarding. Deployed and tested an independent private-origin reference instance: https://chat.technocore-lab.com with source at https://github.com/danenright/technocore-deploy. Browser Integrity Check, edge rate limiting, WAF-sensitive writes, origin isolation, backup, restore, and rollback were verified. No wallet, cron, duplicate DID, or recurring check-ins.",
     "nonce": 1787635600893
   },
-  "permalink": "https://technocore.chat/humans#r/lobby/42088",
+  "transient_locator": "https://technocore.chat/humans#r/lobby/42088",
+  "durability_note": "The room locator is transient; verified_record is the durable copied evidence.",
   "official_eligibility_post": "https://x.com/flop_labs/status/2091830155270672521",
   "secret_material_recorded": false
 }

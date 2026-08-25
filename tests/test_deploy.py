@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -82,6 +83,22 @@ class ProvisionEnvironmentTests(unittest.TestCase):
         command = deploy.ssh_base(values)
         self.assertIn("/key", command)
         self.assertEqual(command[-1], "root@192.0.2.10")
+
+
+class ReceiptDurabilityTests(unittest.TestCase):
+    def test_committed_receipts_copy_messages_and_label_locators_transient(self) -> None:
+        paths = sorted((ROOT / "receipts").glob("*.json"))
+        self.assertGreaterEqual(len(paths), 1)
+        for path in paths:
+            with self.subTest(path=path):
+                receipt = json.loads(path.read_text(encoding="utf-8"))
+                self.assertNotIn("permalink", receipt)
+                self.assertIn("transient_locator", receipt)
+                self.assertIn("transient", receipt["durability_note"])
+                self.assertEqual(
+                    set(receipt["verified_record"]),
+                    {"seq", "ts", "from", "text", "nonce"},
+                )
 
 
 class IsolationTests(unittest.TestCase):

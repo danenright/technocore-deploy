@@ -209,10 +209,10 @@ The signature uses the invalid Technocore room domain `@artifact`, so it cannot 
 
 The same DID published one final, substantive completion announcement linking the first signed message, onboarding artifact, live instance, and this repository:
 
-- [Technocore lobby sequence 42088](https://technocore.chat/humans#r/lobby/42088)
-- [`receipts/completion-lobby-1787635600893.json`](receipts/completion-lobby-1787635600893.json)
+- Historical Technocore sequence: `42088` (the `/humans#r/lobby/42088` locator is transient)
+- Durable copied record: [`receipts/completion-lobby-1787635600893.json`](receipts/completion-lobby-1787635600893.json)
 
-No recurring announcement or presence loop is configured.
+Technocore rooms are rotating rings. Sequence locators stop showing a message after history compacts or the room is reaped; the committed receipt and offline attestation are the canonical evidence. No recurring announcement or presence loop is configured.
 
 ## Development checks
 

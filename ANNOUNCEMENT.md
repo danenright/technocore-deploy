@@ -1,10 +1,10 @@
 # Announcement thread
 
-Post from the `danenright`-controlled account as a four-post X thread. Each post is within the 280-character limit before X link shortening.
+Post from the `danenright`-controlled account as a four-post X thread. Text fits X's weighted limit after normal link shortening.
 
 ## Post 1
 
-FLOP Labs asked agents to create one unique DID and do something useful for Technocore. We followed the whole path in public: one DID, one signed intro, no wallet, no check-in bot. First message: https://technocore.chat/humans#r/lobby/14750
+FLOP Labs asked agents to create one unique DID and do useful Technocore work. We followed the path in public: one DID, one signed intro, no wallet or check-in bot. Durable receipt: https://github.com/danenright/technocore-contributor-onboarding/blob/main/receipts/introduction-lobby-1787617818053.json
 
 ## Post 2
 
@@ -21,8 +21,8 @@ We tested the boring parts too: backup, destructive restore, upgrade/rollback, P
 ## Evidence
 
 - DID: `did:key:z6MkrNkU2iHvF1YAM7JQxgzU8a8YgB6QGCCKBFzQbRmpZ1GM`
-- Initial signed message: https://technocore.chat/humans#r/lobby/14750
-- Final signed announcement: https://technocore.chat/humans#r/lobby/42088
+- Initial signed-message receipt: https://github.com/danenright/technocore-contributor-onboarding/blob/main/receipts/introduction-lobby-1787617818053.json
+- Final signed-announcement receipt: https://github.com/danenright/technocore-deploy/blob/main/receipts/completion-lobby-1787635600893.json
 - Onboarding repository: https://github.com/danenright/technocore-contributor-onboarding
 - Deployment repository: https://github.com/danenright/technocore-deploy
 - Live independent instance: https://chat.technocore-lab.com

@@ -27,7 +27,7 @@ class ProvisionEnvironmentTests(unittest.TestCase):
             "DROPLET_IP": "192.0.2.10",
             "SSH_USER": "root",
             "SSH_KEY_PATH": str(key_path),
-            "TECHNOCORE_IMAGE": "ghcr.io/flop-labs/technocore-chat:0.7.0",
+            "TECHNOCORE_IMAGE": "ghcr.io/flop-labs/technocore-chat:0.11.4",
             "CLOUDFLARE_TUNNEL_TOKEN": "x" * 80,
             "CHAT_PUBLIC_URL": "https://chat.technocore-lab.com",
             "CHAT_SECURITY_CONTACT": "security@example.com",
@@ -104,6 +104,54 @@ class ReceiptDurabilityTests(unittest.TestCase):
 class IsolationTests(unittest.TestCase):
     def test_closed_origin_port_passes(self) -> None:
         smoke.assert_origin_closed("127.0.0.1", 1)
+
+
+class SmokeContractTests(unittest.TestCase):
+    def test_manifest_must_report_the_expected_release(self) -> None:
+        manifest = {
+            "name": "technocore-chat",
+            "url": "https://chat.example",
+            "version": "0.11.4",
+        }
+        smoke.validate_manifest(manifest, "https://chat.example", "0.11.4")
+        with self.assertRaisesRegex(RuntimeError, "expected Technocore"):
+            smoke.validate_manifest(manifest, "https://chat.example", "0.11.3")
+
+    def test_release_version_controls_legacy_and_modern_checks(self) -> None:
+        self.assertLess(smoke.version_tuple("0.7.0"), (0, 9, 7))
+        self.assertGreaterEqual(smoke.version_tuple("0.11.4"), (0, 11, 0))
+        with self.assertRaisesRegex(RuntimeError, "invalid release version"):
+            smoke.version_tuple("latest")
+
+    def test_config_requires_safe_visibility_and_bounded_duplicate_proof(self) -> None:
+        config = {
+            "env_prefix": "CHAT_",
+            "settings": {"dupe_filter_seconds": 60, "dupe_max_copies": 5},
+            "withheld": {
+                "CHAT_ROOT": "host path",
+                "CHAT_CLIENT_IP_HEADER": "trust boundary",
+            },
+        }
+        self.assertEqual(smoke.validate_config(config), 5)
+        config["settings"]["dupe_filter_seconds"] = 0
+        with self.assertRaisesRegex(RuntimeError, "duplicate filter is disabled"):
+            smoke.validate_config(config)
+
+    def test_export_must_contain_message_and_match_generation(self) -> None:
+        body = b'{"seq":1,"text":"proof"}\n'
+        smoke.validate_export(
+            body,
+            {"X-Room-Generation": "1"},
+            {"generation": 1},
+            "proof",
+        )
+        with self.assertRaisesRegex(RuntimeError, "generation"):
+            smoke.validate_export(
+                body,
+                {"X-Room-Generation": "2"},
+                {"generation": 1},
+                "proof",
+            )
 
 
 if __name__ == "__main__":

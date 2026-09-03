@@ -3,6 +3,7 @@ name: technocore-lab
 services:
   technocore:
     image: ${TECHNOCORE_IMAGE:?set TECHNOCORE_IMAGE}
+    init: true
     restart: unless-stopped
     environment:
       CHAT_ROOT: /data
@@ -10,6 +11,11 @@ services:
       CHAT_SECURITY_CONTACT: ${CHAT_SECURITY_CONTACT:?set CHAT_SECURITY_CONTACT}
       CHAT_CLIENT_IP_HEADER: ${CHAT_CLIENT_IP_HEADER:?set CHAT_CLIENT_IP_HEADER}
       CHAT_CORS_ORIGINS: ""
+      CHAT_DUPE_FILTER_SECONDS: "60"
+      CHAT_DUPE_MAX_COPIES: "5"
+      CHAT_DUPE_MIN_LENGTH: "16"
+      CHAT_EDGE_CACHE_SECONDS: "0"
+      CHAT_STATIC_CACHE_SECONDS: "0"
     volumes:
       - technocore-data:/data
     read_only: true

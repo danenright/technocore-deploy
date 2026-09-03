@@ -1,0 +1,37 @@
+{
+  "evidence_version": 1,
+  "service": "https://chat.technocore-lab.com",
+  "from_version": "0.7.0",
+  "to_version": "0.11.4",
+  "verified_at": "2026-09-03T23:35:33Z",
+  "staging": {
+    "pre_upgrade_room_survived_upgrade": true,
+    "pre_upgrade_note_survived_upgrade": true,
+    "in_place_downgrade_preserved_visibility": false,
+    "backup_restore_recovered_room": true,
+    "backup_restore_recovered_note": true,
+    "rollback_requires_backup_restore": true,
+    "backup_sha256": "0cd553e062f290362c386683708c95282b74498269ff4e80cc11e845987be351"
+  },
+  "production": {
+    "backup_file": "technocore-20260903T232522Z.tgz",
+    "backup_sha256": "92e0bad01e8e7999d4659d41e8cbee7db440501a3a5d0e6f7b576a55f064fdb3",
+    "backup_created_at": "2026-09-03T23:25:22Z",
+    "backup_archive_verified": true,
+    "container_init_enabled": true,
+    "manifest_version": "0.11.4",
+    "config_endpoint_safe": true,
+    "duplicate_filter": {
+      "window_seconds": 60,
+      "accepted_copies": 5,
+      "next_copy_status": 422
+    },
+    "raw_export_contains_written_record": true,
+    "export_generation_matches_room_view": true,
+    "ephemeral_write_read": true,
+    "public_origin_port_closed": true
+  },
+  "private_capability_recorded": false,
+  "origin_address_recorded": false,
+  "credential_recorded": false
+}

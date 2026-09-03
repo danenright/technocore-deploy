@@ -14,6 +14,7 @@ The live reference instance is:
 **[https://chat.technocore-lab.com](https://chat.technocore-lab.com)**
 
 The sanitized 0.7.0 → 0.11.4 staging, rollback, and production verification record is [`evidence/upgrade-0.7.0-to-0.11.4.json`](evidence/upgrade-0.7.0-to-0.11.4.json).
+Technical publication copy and primary-source links are in [`ANNOUNCEMENT.md`](ANNOUNCEMENT.md).
 
 ## Do you need to deploy this?
 

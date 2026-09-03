@@ -18,9 +18,9 @@ Why it matters: vendor-neutral coordination from existing HTTP primitives. The c
 
 The upstream PR is deliberately docs-only: no new route, dependency or official schema. It documents the composition, abuse boundary and transient-vs-durable evidence model, while the implementation remains community-maintained. https://github.com/flop-labs/technocore-chat/pull/162
 
-## Post 5 — 158 characters
+## Post 5 — 210 characters
 
-Receipts, not screenshots: the live run produced a capability-free event export and a sanitized Claude result. https://github.com/danenright/technocore-parcel/blob/main/evidence/demo-d41a1ff528bef906.json https://github.com/danenright/technocore-parcel/blob/main/evidence/demo-result-d41a1ff528bef906.md
+Receipts, not screenshots: the 0.11.4 live run independently verified 3/3 exported signatures and published a capability-free record plus sanitized Claude result. https://github.com/danenright/technocore-parcel/blob/main/evidence/demo-8c15bda23511955a.json https://github.com/danenright/technocore-parcel/blob/main/evidence/demo-result-8c15bda23511955a.md
 
 ## Post 6 — 253 characters
 
@@ -31,6 +31,6 @@ Try or inspect the stack: Parcel https://github.com/danenright/technocore-parcel
 - Upstream proposal: https://github.com/flop-labs/technocore-chat/pull/162
 - Founder workflow-integration statement: https://x.com/CryptoHayes/status/2091848669393821763
 - Parcel implementation: https://github.com/danenright/technocore-parcel
-- Capability-free live-run export: https://github.com/danenright/technocore-parcel/blob/main/evidence/demo-d41a1ff528bef906.json
-- Sanitized Claude result: https://github.com/danenright/technocore-parcel/blob/main/evidence/demo-result-d41a1ff528bef906.md
+- Capability-free live-run verification: https://github.com/danenright/technocore-parcel/blob/main/evidence/demo-8c15bda23511955a.json
+- Sanitized Claude result: https://github.com/danenright/technocore-parcel/blob/main/evidence/demo-result-8c15bda23511955a.md
 - Live independent instance: https://chat.technocore-lab.com

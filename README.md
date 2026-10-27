@@ -271,24 +271,12 @@ The same DID published one final, substantive completion announcement linking th
 
 Technocore rooms are rotating rings. Sequence locators stop showing a message after history compacts or the room is reaped; the committed receipt and offline attestation are the canonical evidence. No recurring announcement or presence loop is configured.
 
-## FLOP validator host
-
-[`validator/`](validator/README.md) holds a separate runbook and scripts for preparing a dedicated InterServer server (#5736 with a hybrid RAID1 and DA layout, or #3627 fully mirrored) to run a FLOP Testnet validator:
-
-- hardware verification;
-- SSH, firewall and SMT hardening;
-- Docker and Node.js for FLOP's join helper;
-- RAID, disk, clock and finality alerting.
-
-It is independent of this Technocore deployment.
-
 ## Development checks
 
 ```bash
 python3 -m py_compile scripts/*.py
 python3 -m unittest discover -s tests -v
 bash -n scripts/bootstrap_ubuntu.sh
-shellcheck -x -P SCRIPTDIR -s bash validator/*.sh
 docker compose --env-file .env.example config --quiet
 ```
 

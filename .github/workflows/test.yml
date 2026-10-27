@@ -25,8 +25,6 @@ jobs:
           python -m py_compile scripts/deploy.py scripts/operate.py scripts/smoke.py
           python -m unittest discover -s tests -v
           bash -n scripts/bootstrap_ubuntu.sh
-      - name: Lint validator host scripts
-        run: shellcheck -x -P SCRIPTDIR -s bash validator/*.sh
       - name: Validate Compose
         run: docker compose --env-file .env.example config --quiet
       - name: Verify durable DID binding

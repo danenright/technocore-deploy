@@ -273,7 +273,7 @@ Technocore rooms are rotating rings. Sequence locators stop showing a message af
 
 ## FLOP validator host
 
-[`validator/`](validator/README.md) holds a separate runbook and scripts for preparing a dedicated server (InterServer #3627) to run a FLOP Testnet validator:
+[`validator/`](validator/README.md) holds a separate runbook and scripts for preparing a dedicated InterServer server (#5736 with a hybrid RAID1 and DA layout, or #3627 fully mirrored) to run a FLOP Testnet validator:
 
 - hardware verification;
 - SSH, firewall and SMT hardening;
